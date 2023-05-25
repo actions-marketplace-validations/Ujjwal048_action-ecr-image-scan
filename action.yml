@@ -1,0 +1,16 @@
+name: "Pull Request another repository"
+description: "Used for pull request a copy of a folder to another repository"
+inputs:
+  ecr_repository:
+    description: "Name of the ecr repository"
+    required: true
+  image_tag:
+    description: "Image tag"
+    required: true
+
+runs:
+  using: "docker"
+  image: "Dockerfile"
+  args:
+    - ${{ inputs.ecr_repository }}
+    - ${{ inputs.image_tag }}
