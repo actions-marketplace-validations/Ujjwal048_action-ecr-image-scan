@@ -12,9 +12,11 @@ if [ $(echo $?) -eq 0 ]; then
     HIGH=$(echo $SCAN_FINDINGS | jq '.HIGH')
     if [ $CRITICAL != null ] || [ $HIGH != null ]; then
         echo -e "Found vulnerabilities in Docker image \n$CRITICAL CRITICAL and $HIGH HIGH level"
-        exit 1
+        status="unsafe"
+        echo "status=$status" >> $GITHUB_OUTPUT
     else
         echo "No vulnerabilites found"
-        echo "Pushing Image to Main repo"
+        status="safe"
+        echo "status=$status" >> $GITHUB_OUTPUT
     fi
 fi

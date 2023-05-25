@@ -14,3 +14,6 @@ runs:
   args:
     - ${{ inputs.ecr_repository }}
     - ${{ inputs.image_tag }}
+outputs:
+  status: 
+    description: 'Whether container image is safe or not'
