@@ -1,5 +1,5 @@
-name: "Pull Request another repository"
-description: "Used for pull request a copy of a folder to another repository"
+name: "Scan Docker Images On Push to ECR"
+description: "Scans for container image vulnerabilities when an image is pushed to ECR"
 inputs:
   ecr_repository:
     description: "Name of the ecr repository"
